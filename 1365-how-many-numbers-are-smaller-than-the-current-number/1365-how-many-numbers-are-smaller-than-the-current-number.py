@@ -1,21 +1,17 @@
 class Solution:
     def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
-        countList = []
-        if len(nums) > 2 and len(nums) <= 500:
-            for i in range(0, len(nums)):
-                counter = 0
-                if nums[i] >=0 and nums[i] <= 100:
-                    for j in range(0, len(nums)):
-                        if nums[j] < nums[i]:
-                            counter += 1
-                countList.append(counter)
-        elif len(nums) == 2:
-            if nums[0] > nums[1]:
-                countList.append(1)
-                countList.append(0)
-            else:
-                countList.append(0)
-                countList.append(1)
-                    
-        return countList
-        
+        counter = 0
+        mapping = {}
+        count = []
+        sortedNums = sorted(nums)
+        for i in range(len(sortedNums)):
+            for num in sortedNums[: i]:
+                if num < sortedNums[i]:
+                    counter += 1
+            mapping[sortedNums[i]] = counter
+            counter = 0
+        for val in nums:
+            count.append(mapping[val])
+        return count
+                
+                
