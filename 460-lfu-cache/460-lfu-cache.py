@@ -5,8 +5,8 @@ class Node:
 class LFUCache:
     def __init__(self, capacity: int):
         self.capacity = capacity
-        self.keyCount = defaultdict(int) # key: count
-        self.cache = defaultdict(OrderedDict) # count : {key: value}
+        self.keyCount = defaultdict(int)
+        self.cache = defaultdict(OrderedDict) 
         self.minCount = 0
         
     def updateCount(self, key: int, value: int = None) -> int:
