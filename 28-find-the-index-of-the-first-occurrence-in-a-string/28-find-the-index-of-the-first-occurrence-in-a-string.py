@@ -1,7 +1,7 @@
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
-        haystack = list(haystack)
-        needle = list(needle)
+        # haystack = list(haystack)
+        # needle = list(needle)
         n = len(needle)
         h = len(haystack)
         idx = -1
