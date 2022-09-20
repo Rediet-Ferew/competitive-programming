@@ -5,7 +5,11 @@ class Solution:
             if char.isalpha() or char.isdigit():
                 anothers += char
         anothers = anothers.lower()
-        if anothers == anothers[::-1]:
-            return True
-        else:
-            return False
+        left = 0
+        right = len(anothers) - 1
+        while left < right:
+            if anothers[left] != anothers[right]:
+                return False
+            left += 1
+            right -= 1
+        return True
