@@ -1,6 +1,6 @@
 class Solution:
     def findRepeatedDnaSequences(self, s: str) -> List[str]:
-        s = list(s)
+        # s = list(s)
         n = len(s)
         occurence = {}
         left = 0
@@ -9,7 +9,7 @@ class Solution:
         while right <= n - 1:
             temp = s[left:right + 1]
             # temp.sort()
-            temp = "".join(temp)
+            # temp = "".join(temp)
             if temp in occurence.keys():
                 occurence[temp] += 1
             else:
