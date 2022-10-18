@@ -1,6 +1,5 @@
 class Solution:
     def minimumCardPickup(self, cards: List[int]) -> int:
-        # prefix = {3 : 3, 4: 4, 2:2, 7:5 }
         prefix = {}
         min_len = (10 ** 5) + 1
         for i, card in enumerate(cards):
