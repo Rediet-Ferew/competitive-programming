@@ -5,9 +5,7 @@ class Solution:
         checker = True
         for i, j in zip(l, r):
             new = nums[i : j + 1]
-            
             new = sorted(new)
-            
             diff = new[1] - new[0]
             for k in range(len(new) - 1):
                 if new[k + 1] - new[k] == diff:
