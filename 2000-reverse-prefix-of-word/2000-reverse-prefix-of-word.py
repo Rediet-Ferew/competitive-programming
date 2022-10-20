@@ -6,7 +6,7 @@ class Solution:
             if word[i] == ch:
                 idx = i
                 break
-        print(idx)
+        # print(idx)
         start = 0
         end = idx
         while start < end:
