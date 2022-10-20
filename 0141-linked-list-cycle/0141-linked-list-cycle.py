@@ -10,15 +10,17 @@ class Solution:
         3 -> 2 -> 0 -> 4->
         [3->, 2->, 0->,4 -> ]
         """
-        nodes = []
+        nodes = {}
         current = head
+        size = 0
         while current:
             if current not in nodes:
-                nodes.append(current)
+                nodes[current] = size
             else:
                 # print(nodes)
                 return True
             current = current.next
+            size += 1
         # print(nodes)
         return False
             
