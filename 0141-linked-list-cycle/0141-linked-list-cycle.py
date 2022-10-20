@@ -6,10 +6,6 @@
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
-        """
-        3 -> 2 -> 0 -> 4->
-        [3->, 2->, 0->,4 -> ]
-        """
         nodes = {}
         current = head
         size = 0
@@ -17,11 +13,9 @@ class Solution:
             if current not in nodes:
                 nodes[current] = size
             else:
-                # print(nodes)
                 return True
             current = current.next
             size += 1
-        # print(nodes)
         return False
             
         
