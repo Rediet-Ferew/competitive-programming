@@ -1,7 +1,5 @@
 class Solution:
     def reverseVowels(self, s: str) -> str:
-        if len(s) == 1:
-            return s
         s = list(s) 
         left = 0
         right = len(s) - 1
