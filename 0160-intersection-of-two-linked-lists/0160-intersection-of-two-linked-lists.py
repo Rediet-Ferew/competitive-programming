@@ -7,7 +7,6 @@
 class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
         Aptr = headA
-        Bptr = headB
         nums = {}
         size = 0
         while Aptr:
