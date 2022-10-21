@@ -9,8 +9,8 @@ class Solution:
             else:
                 Chars[word].append(ch)
         result = []
-        for key, val in Chars.items():
-            result.append(val)
-        return result
+        # for key, val in Chars.items():
+        #     result.append(val)
+        return Chars.values()
             
             
