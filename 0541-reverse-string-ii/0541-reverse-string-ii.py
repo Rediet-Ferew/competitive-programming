@@ -17,17 +17,6 @@ class Solution:
             ln = n_2k + k 
             s[n_2k:ln] = reversed(s[n_2k:ln])
         return "".join(s)
-        # n = len(s)
-        # s = list(s)
-        # start = 0
-        # end = 0
-        # while end < n:
-        #     end = (start + (2*k)) - 1
-        #     mid = (start + end) // 2
-        #     temp = s[start : mid + 1][::-1]
-        #     s[start : mid + 1] = temp
-        #     start += end + 1
-        # return "".join(s)
-            
+       
         
         
