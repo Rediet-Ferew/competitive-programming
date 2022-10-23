@@ -7,10 +7,8 @@ class Solution:
     def deleteMiddle(self, head: Optional[ListNode]) -> Optional[ListNode]:
         count = 0 
         current = head
-        temp = []
         while current:
             count += 1
-            temp.append(current.val)
             current = current.next
         if count <= 1:
             return 
