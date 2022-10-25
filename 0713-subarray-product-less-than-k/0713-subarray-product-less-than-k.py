@@ -11,10 +11,9 @@ class Solution(object):
         result = 0
         while r < len(nums):
             prod *= nums[r]
-            while l < r and prod >= k:
+            while l <= r and prod >= k:
                 prod = prod // nums[l]
                 l += 1
-            if prod < k:
-                result += (r - l + 1)
+            result += (r - l + 1)
             r += 1
         return result
