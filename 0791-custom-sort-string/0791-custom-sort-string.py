@@ -12,9 +12,10 @@ class Solution:
                     res[idx] = sList[i]
                 else:
                     res[idx] += sList[i]
+        res = "".join(res)
         for j in range(len(sList)):
-            if (sList[j] not in indices):
-                res.append(sList[j])
-        return ("".join(res))
+            if sList[j] not in indices:
+                res += sList[j]
+        return res
         
         
