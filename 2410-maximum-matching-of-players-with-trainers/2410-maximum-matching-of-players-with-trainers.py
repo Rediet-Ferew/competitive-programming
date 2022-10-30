@@ -1,7 +1,7 @@
 class Solution:
     def matchPlayersAndTrainers(self, players: List[int], trainers: List[int]) -> int:
-        players.sort()
-        trainers.sort()
+        players = sorted(players)
+        trainers = sorted(trainers)
         p = 0
         t = 0
         count = 0
