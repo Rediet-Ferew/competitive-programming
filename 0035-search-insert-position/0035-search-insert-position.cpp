@@ -3,7 +3,7 @@ public:
     int searchInsert(vector<int>& nums, int target) {
         bool check = std::find(std::begin(nums), std::end(nums), target) != std::end(nums);
         if(!check){
-             nums.push_back(target);
+            nums.push_back(target);
             sort(nums.begin(), nums.end());
         }
         
