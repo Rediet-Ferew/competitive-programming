@@ -1,18 +1,20 @@
 class Solution:
     def sortSentence(self, s: str) -> str:
+        final = [""] * 10
+        temp = ""
+        for i in range(len(s)):
+            if s[i] == ' ':
+                continue
+            if not s[i].isnumeric():
+                temp += s[i]
+            else:
+                idx = int(s[i])
+                final[idx] = temp
+                temp = ""
+        res = ""
+        for j in range(10):
+            if final[j] != "":
+                res +=( final[j] + " ")
+        return res[:-1]
+            
         
-        senArr = s.split()
-        sentence = [" "]*len(senArr)
-        # words = {}
-        # sentenceArray = s.split()
-        # for word in sentenceArray:
-        #     words[word[-1]] = word[:-1]
-        # print(words)
-        # for i in sorted(words):
-        #     sentence.append(words[i]) 
-        # return ' '.join(sentence)
-        for word in senArr:
-            # print(word[-1])
-            idx = int(word[-1]) - 1
-            sentence[idx] = word[:-1]
-        return " ".join(sentence)
