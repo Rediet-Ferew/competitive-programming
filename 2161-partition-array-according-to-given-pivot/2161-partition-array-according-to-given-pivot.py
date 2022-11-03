@@ -5,12 +5,7 @@ class Solution:
             1 : 0,
             0 : 0
         }
-        
-        less = []
-        middle = []
-        greater = []
         final = [0] * len(nums)
-        
         for i in range(len(nums)):
             if nums[i] > pivot:
                 count[1] += 1
@@ -32,10 +27,4 @@ class Solution:
             else:
                 final[m] = nums[j]
                 m += 1
-        # for n in less:
-        #     final.append(n)
-        # for n in middle:
-        #     final.append(n)
-        # for n in greater:
-        #     final.append(n)
         return final
