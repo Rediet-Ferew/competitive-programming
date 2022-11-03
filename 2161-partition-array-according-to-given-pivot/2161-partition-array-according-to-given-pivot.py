@@ -1,22 +1,17 @@
 class Solution:
     def pivotArray(self, nums: List[int], pivot: int) -> List[int]:
-        count = {
-            -1 : 0,
-            1 : 0,
-            0 : 0
-        }
+        lcount = 0
+        gcount = 0
         final = [0] * len(nums)
         for i in range(len(nums)):
             if nums[i] > pivot:
-                count[1] += 1
+                gcount += 1
             elif nums[i] < pivot:
-                count[-1] += 1
-            else:
-                count[0] += 1
+                lcount += 1
         
         l = 0
-        g = len(nums) - count[1]
-        m = count[-1]
+        g = len(nums) - gcount
+        m = lcount
         for j in range(len(nums)):
             if nums[j] < pivot:
                 final[l] = nums[j]
