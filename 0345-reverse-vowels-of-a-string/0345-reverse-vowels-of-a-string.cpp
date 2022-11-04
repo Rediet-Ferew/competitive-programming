@@ -7,30 +7,21 @@ class Solution {
         }
 public:
     string reverseVowels(string s) {
-        vector<char> word;
-        for(int i =0; i<s.size(); i++){
-            word.push_back(s[i]);
-        }
-        
         int l = 0;
         int r = s.size() - 1;
         while(l < r){
-            if(isVowel(word[l]) && isVowel(word[r])){
-                char temp = word[l];
-                word[l] = word[r];
-                word[r] = temp;
+            if(isVowel(s[l]) && isVowel(s[r])){
+                char temp = s[l];
+                s[l] = s[r];
+                s[r] = temp;
                 l++;
                 r--;
-            }else if(!isVowel(word[l])){
+            }else if(!isVowel(s[l])){
                 l++;
-            }else if(!isVowel(word[r])){
+            }else if(!isVowel(s[r])){
                 r--;
             }
         }
-        string res;
-        for(int i = 0; i < word.size(); i++){
-            res.push_back(word[i]);
-        }
-        return res;
+        return s;
     }
 };
