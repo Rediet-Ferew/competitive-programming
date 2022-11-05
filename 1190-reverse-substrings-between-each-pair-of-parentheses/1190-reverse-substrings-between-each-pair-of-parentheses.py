@@ -1,21 +1,15 @@
 class Solution:
     def reverseParentheses(self, s: str) -> str:
-        n = len(s)
-        # sList = list(s)
         stack = []
         for c in s:
-            if c != ')':
-                stack.append(c)
-            else:
-                word = ""
+            if c == ')':
+                temp = ""
                 while stack and stack[-1] != '(':
-                    word += stack.pop()
+                    temp += (stack.pop())
                 stack.pop()
-                stack.extend(list(word))
-        return ''.join(stack)
-                
-                
-            
-                
-        # sList = list(s)
-        # print(sList)
+                for t in temp:
+                    stack.append(t)
+            else:
+                stack.append(c)
+        return "".join(stack)
+                    
