@@ -7,7 +7,7 @@ class Solution:
         for brace in s:
             if brace in braces:
                 stack.append(brace)
-            elif brace not in braces:
+            else:
                 if not stack:
                     return False
                 elif stack and braces[stack[-1]] != brace:
