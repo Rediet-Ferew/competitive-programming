@@ -1,23 +1,15 @@
-class Solution(object):
-    def numberOfSubstrings(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
-        n = len(s)
-        count = {}
+class Solution:
+    def numberOfSubstrings(self, s: str) -> int:
+        counter = {}
+        longest = 0
         l = 0
         r = 0
-        output = 0
-        while r < n:
-            count[s[r]] = 1 + count.get(s[r], 0)
-            while len(count) == 3:
-                output += (n - r)
-                count[s[l]] -= 1
-                if count[s[l]] == 0:
-                    count.pop(s[l])
+        for r in range(len(s)):
+            counter[s[r]] = 1 + counter.get(s[r], 0)
+            while len(counter) == 3:
+                longest += (len(s) - r)
+                counter[s[l]] -= 1
+                if counter[s[l]] == 0:
+                    counter.pop(s[l])
                 l += 1
-            r += 1
-        return output
-        
-            
+        return longest
