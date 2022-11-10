@@ -1,11 +1,15 @@
 class Solution:
     def xorQueries(self, arr: List[int], queries: List[List[int]]) -> List[int]:
-        result = []
-        prefix_xor = [0] * (len(arr) + 1)
-        for i in range(len(arr)):
-            prefix_xor[i + 1] = prefix_xor[i] ^ arr[i]
-        # print(prefix_xor)
+        xor = [arr[0]]
+        for i in range(1, len(arr)):
+            val = xor[-1] ^ arr[i]
+            xor.append(val)
+        ans = [0] * len(queries)
         for j in range(len(queries)):
-            left, right = queries[j]
-            result.append(prefix_xor[right + 1] ^ prefix_xor[left])
-        return result
+            l = queries[j][0]
+            r = queries[j][1]
+            if l == 0:
+                ans[j] = xor[r]
+            else:
+                ans[j] = xor[l-1] ^ xor[r]
+        return ans
