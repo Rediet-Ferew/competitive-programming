@@ -1,19 +1,9 @@
 class Solution:
     def totalCost(self, costs: List[int], k: int, candidates: int) -> int:
-        """
-        total = 2 + 2 + 7
-        [17,12,10,2,7,2,11,20,8]
-                    lr
-        lheap = [10,12,17]
-        rheap = [8,11,20]
-        
-        """
         total = 0
         n = len(costs)
-        # if k >= n:
-        #     return sum(costs)
-        if 2*candidates > n:
-            return sum(sorted(costs)[:k])
+        # if 2*candidates > n:
+        #     return sum(sorted(costs)[:k])
         l = candidates - 1
         r = n - candidates
         lheap = costs[:min(l+1,n)]+[float("inf")]
