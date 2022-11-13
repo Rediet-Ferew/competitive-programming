@@ -31,4 +31,3 @@ class Solution:
         #     i = j + 1
         # stack = stack[::-1]
         # return " ".join(stack)
-          
