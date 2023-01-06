@@ -6,11 +6,10 @@ class Solution:
         real2 = int(c_num2[0])
         im1 = int(c_num1[1][:-1])
         im2 = int(c_num2[1][:-1])
-        ans = []
+        
         ans_real = (real1*real2) - (im1*im2)
         ans_im = (real1 * im2) + (im1 * real2)
-        ans.append(str(ans_real))
-        ans.append(str(ans_im) + "i")
+        ans = str(ans_real) + "+" + (str(ans_im) + "i")
         
-        return "+".join(ans)
+        return ans
         
