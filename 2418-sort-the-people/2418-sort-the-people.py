@@ -1,16 +1,15 @@
 class Solution:
     def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
-        pair = []
+        
         n = len(names)
         
-        for k in range(n):
-            swap = False
-            for idx in range(n - 1):
-                if heights[idx] < heights[idx + 1]:
-                    heights[idx], heights[idx + 1] = heights[idx + 1], heights[idx]
-                    names[idx], names[idx + 1] = names[idx + 1], names[idx]
-                    swap = True
-            if not swap:
-                break
+        for i in range(n - 1):
+            min_index = i
+            for j in range(i + 1, n):
                 
+                if heights[j] > heights[min_index]:
+                    min_index = j
+            heights[i], heights[min_index] = heights[min_index], heights[i]
+            names[i], names[min_index] = names[min_index], names[i]
+            
         return names
