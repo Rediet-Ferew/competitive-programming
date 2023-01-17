@@ -1,8 +1,14 @@
 class Solution:
     def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
-        pairs = []
-        for n,h in zip(names,heights):
-            pairs.append((h,n))
-        pairs = sorted(pairs)[::-1]
-        res = [val for key, val in pairs]
-        return res
+        pair = []
+        n = len(names)
+        
+        for k in range(n):
+            for idx in range(n - 1):
+                if heights[idx] < heights[idx + 1]:
+                    heights[idx], heights[idx + 1] = heights[idx + 1], heights[idx]
+                    names[idx], names[idx + 1] = names[idx + 1], names[idx]
+
+        
+
+        return names
