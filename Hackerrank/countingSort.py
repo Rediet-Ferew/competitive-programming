@@ -1,22 +1,30 @@
 
 
+#!/bin/python3
+
 import math
 import os
 import random
 import re
 import sys
 
-#Counting the number of occurences
+#
+# Complete the 'countingSort' function below.
+#
+# The function is expected to return an INTEGER_ARRAY.
+# The function accepts INTEGER_ARRAY arr as parameter.
+#
 
 def countingSort(arr):
-    result = []
-    for i in range(0, 100):
-        counter = 0
-        for j in range (0,  len(arr)):
-            if i == arr[j]:
-                counter += 1
-        result.append(counter)
-    return result
+    min_num = min(arr)
+    max_num = max(arr)
+    counting_arr = [0] * (max_num + 1)
+    
+    for n in arr:
+        counting_arr[n] += 1
+        
+    return counting_arr
+
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
