@@ -4,13 +4,14 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
         l = 0
-        r = 0
+        zero = 0
         end = len(nums) - 1
+        
         while l <= end:
             if nums[l] == 0:
-                nums[l], nums[r] = nums[r], nums[l]
+                nums[l], nums[zero] = nums[zero], nums[l]
                 l += 1
-                r += 1
+                zero += 1
             elif nums[l] == 1:
                 l += 1
             else:
