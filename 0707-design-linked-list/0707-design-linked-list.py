@@ -13,8 +13,6 @@ class MyLinkedList:
     def get(self, idx: int) -> int:
         if idx < 0 or idx >= self.size or not self.head:
             return -1
-        # if idx == 0:
-        #     return self.head.val
         
         current = self.head
         num = -1
@@ -27,7 +25,7 @@ class MyLinkedList:
             indx += 1
         return num
 
-        # return current.val
+        
 
 
     def addAtHead(self, val: int) -> None:
@@ -92,11 +90,16 @@ class MyLinkedList:
 
             idx = 0
             current = self.head
+            previous = Node()
             while current:
-                if idx == index - 1:
-                    current.next = current.next.next
+                if idx == index:
+                    previous.next = current.next
                     break
-                current = current.next
+                else:
+                    previous = current
+                    current = current.next
+                    
+                
                 idx += 1
 
             self.size -= 1
