@@ -15,7 +15,3 @@ class Solution:
                 people_to_go += 1
                 r -= 1
         return people_to_go
-            
-                
-            
-            
