@@ -1,6 +1,6 @@
 class Solution:
     def allCellsDistOrder(self, rows: int, cols: int, rCenter: int, cCenter: int) -> List[List[int]]:
-        num = (cols - 1) * cols + (rows - 1)
+        
         
         dis = []
         
@@ -10,11 +10,9 @@ class Solution:
                 distance = abs(rCenter - r) + abs(cCenter - c)
 
                 dis.append([distance, [r, c]])
-        res = []
-        for key, val in dis:
-            res.append([key, val])
-        res.sort()
+        dis.sort()
+        
         ans = []
-        for i, v in enumerate(res):
+        for i, v in enumerate(dis):
             ans.append(v[1])
         return ans
