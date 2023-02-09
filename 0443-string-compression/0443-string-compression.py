@@ -10,7 +10,7 @@ class Solution:
             idx += 1
             if r - l > 1:
                 count = str(r - l)
-                for c in count:
+                for c in count: 
                     chars[idx] = c
                     idx += 1
             l = r
