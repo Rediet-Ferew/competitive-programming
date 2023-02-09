@@ -5,10 +5,14 @@ class Solution:
         for idx, num in enumerate(numbers):
             
             diff = target - num
+            
             if diff in visited:
                 indx = visited[diff]
+                
                 return [indx + 1, idx + 1]
+            
             visited[num] = idx
+            
 #         left = 0
 #         right = n - 1
 #         while left < right:
