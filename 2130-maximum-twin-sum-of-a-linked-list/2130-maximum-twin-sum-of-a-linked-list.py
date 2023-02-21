@@ -5,12 +5,25 @@
 #         self.next = next
 class Solution:
     def pairSum(self, head: Optional[ListNode]) -> int:
-        current = head
-        newList = [current.val]
-        newSum = []
-        while current.next:
-            current = current.next
-            newList.append(current.val)
-        for i in range(len(newList)//2):
-            newSum.append(newList[i] + newList.pop())
-        return max(newSum)
+        idx = {}
+        
+        cnt = 0
+        curr = head
+        while curr:
+            curr = curr.next
+            cnt += 1
+            
+        max_sum = float('-inf')
+        curr_2 = head
+        pos = 0
+        while curr_2:
+            
+            if (cnt - pos - 1) in idx:
+                max_sum = max(max_sum , idx[cnt - pos - 1] + curr_2.val)
+            else:
+                idx[pos] = curr_2.val
+                
+            pos += 1
+            curr_2 = curr_2.next
+        
+        return max_sum
