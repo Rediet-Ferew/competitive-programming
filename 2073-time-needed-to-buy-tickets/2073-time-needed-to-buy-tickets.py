@@ -7,7 +7,6 @@ class Solution:
             q.append((t, idx))
             
         
-        ans = [0] * n
         time = 0
         
         while q:
@@ -15,9 +14,11 @@ class Solution:
             time += 1
             ticket, idx = q.popleft()
             ticket -= 1
+            
             if ticket > 0:
                 q.append((ticket, idx))
-            elif ticket == 0:
-                ans[idx] = time
+                
+            elif ticket == 0 and idx == k:
+                return time
         
-        return ans[k]
+        # return ans[k]
