@@ -1,24 +1,44 @@
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
-        n = len(s1)
-        if len(s2) < len(s1):
+        n = len(s2)
+        
+        freq_1 = Counter(s1)
+        freq_2 = {}
+        k = len(s1)
+        if k > n:
             return False
-        count_s1 = {}
-        sub_count = {}
-        for i in range(len(s1)):
-            count_s1[s1[i]] = 1 + count_s1.get(s1[i], 0)
-            sub_count[s2[i]] = 1 + sub_count.get(s2[i], 0)
-        if count_s1 == sub_count:
+        
+        for i in range(k):
+            
+            if s2[i] in freq_2:
+                freq_2[s2[i]] += 1
+            else:
+                freq_2[s2[i]] = 1
+                
+        if freq_1 == freq_2:
             return True
+
         left = 0
-        right = n
-        while right < len(s2):
-            sub_count[s2[left]] -= 1
-            sub_count[s2[right]] = 1 + sub_count.get(s2[right], 0)
-            if sub_count[s2[left]] == 0:
-                sub_count.pop(s2[left])
-            if count_s1 == sub_count:
-                return True
+        for right in range(k, n):
+            
+            ch_l = s2[left]
+            
+            freq_2[ch_l] -= 1
+            
+            if freq_2[ch_l] == 0:
+                freq_2.pop(ch_l)
+            
+            
+            ch = s2[right]
+            
+            if ch in freq_2:
+                freq_2[ch] += 1
+            else:
+                freq_2[ch] = 1
             left += 1
-            right += 1
+            
+            if freq_1 == freq_2:
+                return True
+            
         return False
+        
