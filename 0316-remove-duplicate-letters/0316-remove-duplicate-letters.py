@@ -1,15 +1,22 @@
 class Solution:
     def removeDuplicateLetters(self, s: str) -> str:
-        indices = {}
-        res = []
-        for idx, ch in enumerate(s):
-            indices[ch] = idx
-        for i, c in enumerate(s):
-            if c not in res:
-                while res and i < indices[res[-1]] and c < res[-1]:
-                    res.pop()
-                res.append(c)
-        return "".join(res)
+        n = len(s)
+        last_idx = {}
+        for idx, letter in enumerate(s):
+            last_idx[letter] = idx
+        
+        stack = []
+        for i in range(n):
+            ch = s[i]
+            
+            if ch not in stack:
+                
+                while stack and stack[-1] > ch and last_idx[stack[-1]] > i:
+                    stack.pop()
+            
+                stack.append(ch)
+            
+        return "".join(stack)
                     
                     
             
