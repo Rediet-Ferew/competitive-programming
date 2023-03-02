@@ -1,23 +1,31 @@
 class Solution:
     def scoreOfParentheses(self, s: str) -> int:
+        n = len(s)
         stack = []
-       
-        for i in range(len(s)):
-            if s[i] == '(':
-                stack.append(0)
+        res = []
+        score = 0
+        right = 0
+        while right < n:
+            if s[right] == '(':
+                stack.append(s[right])
+                
+                if score:
+                    res.append(score)
+                    score = 0
+                right += 1
             else:
-                if stack[-1] == 0:
+                i = right
+                power = -1
+                while stack and s[i] ==')':
                     stack.pop()
-                    stack.append(1)
-                else:
-                    count = 0
-                    while stack and stack[-1] != 0:
-                        count += stack[-1]
-                        stack.pop()
-                    stack.pop()
-                    stack.append(2 * count)
-        res = 0        
-        while stack:
-            res +=stack[-1]
-            stack.pop()
-        return res
+                    power += 1
+                    i += 1
+                # print(power)
+                right = i
+                score += 2 ** power
+                if len(stack):
+                    score *= 2 ** len(stack)
+                # print(score)
+        res.append(score)
+        return sum(res)
+            
