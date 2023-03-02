@@ -1,10 +1,12 @@
 class Solution:
     def findKthBit(self, n: int, k: int) -> str:
-        stack = ["0"]
-        for i in range(1, n):
-            inverted = ''.join(['1' if i == '0' else '0'
-                     for i in stack[i - 1]])
-            newStr = str(stack[i - 1]) + "1" + inverted[:: -1]
-            stack.append(newStr)
-        return stack[n - 1][k - 1]
         
+        def recurssion(n):
+            if n == 0:
+                return '0'
+            else:
+                string = ''.join('1' if b == '0' else '0' for b in recurssion(n -1)) 
+                return recurssion(n - 1) + "1" + string[::-1]
+            
+        s = recurssion(n - 1)
+        return str(s[k -1])
