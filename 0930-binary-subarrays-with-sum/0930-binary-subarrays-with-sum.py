@@ -1,14 +1,21 @@
 class Solution:
     def numSubarraysWithSum(self, nums: List[int], goal: int) -> int:
-        prefix = {0: 1}
-        result = 0
+        n = len(nums)
+        prefix = {0 : 1}
         total = 0
-        for binary in nums:
-            total += binary
-            target = total - goal
-            if target in prefix:
-                result += prefix[target]
+        subarrays = 0
+        for right in range(n):
+            
+            total += nums[right]
+            diff = total - goal
+            
+            if diff in prefix:
+                subarrays += prefix[diff]
                 
-            prefix[total] = prefix.get(total, 0) + 1
-        return result
-             
+            if total in prefix:
+                
+                prefix[total] += 1
+                
+            else:
+                prefix[total] = 1
+        return subarrays
