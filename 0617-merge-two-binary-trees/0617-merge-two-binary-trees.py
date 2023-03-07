@@ -7,13 +7,11 @@
 class Solution:
     def mergeTrees(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> Optional[TreeNode]:
         if not root1 and not root2:
-            return None
+            return root1
         val1 = root1.val if root1 else 0
         val2 = root2.val if root2 else 0
-        newTree = TreeNode(val1 + val2)
+        overlapped = TreeNode(val1 + val2)
         
-        newTree.left = self.mergeTrees(root1.left if root1 else None, root2.left if root2 else None)
-        newTree.right = self.mergeTrees(root1.right if root1 else None, root2.right if root2 else None)
-        return newTree
-        
-            
+        overlapped.left = self.mergeTrees(root1.left if root1 else None, root2.left if root2 else None) 
+        overlapped.right = self.mergeTrees(root1.right if root1 else None, root2.right if root2 else None)
+        return overlapped
