@@ -5,13 +5,33 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def traverse(self, root, nodes):
-            if root:
-                self.traverse(root.left, nodes)
-                nodes.append(root.val)
-                self.traverse(root.right, nodes)
-            
+    def inorder_successor(self, root, stk):
+
+        if not root:
+            return None
+        stk.append(root)
+    
+        return self.inorder_successor(root.left, stk)
+
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
-        ans = []
-        self.traverse(root, ans)
-        return ans[k - 1]
+        # ans = []
+        # self.traverse(root, ans)
+        # return ans[k - 1]
+        level = 0
+        stack = []
+        r = root
+        
+        while stack or r:
+            while r:
+                stack.append(r)
+                r = r.left
+            
+            r = stack.pop()
+            level += 1
+            if level == k:
+                return r.val
+            r = r.right
+        
+        
+            
+        
