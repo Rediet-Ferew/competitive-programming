@@ -1,10 +1,21 @@
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
-        nums.sort()
         n = len(nums)
-        num = 0
+        start = 0
+        ans = set()
+        while start < len(nums):
+            idx = nums[start]
+            if idx == start:
+                start += 1
+                continue
+            if idx == n:
+                start += 1
+                continue
+            
+            else:
+                nums[start], nums[idx] = nums[idx], nums[start]
         for i in range(n):
-            if nums[i] != num:
-                return num
-            num += 1
-        return num
+            if i != nums[i]:
+                return i
+        return n
+        
